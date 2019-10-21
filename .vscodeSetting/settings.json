@@ -1,0 +1,192 @@
+{
+    // zsh が起動するように
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+
+    // フォントを Ricty に
+    "editor.fontFamily": "Cica-Regular",
+
+    // フォント サイズをピクセル単位で制御します。
+    "editor.fontSize": 16,
+
+    // ターミナルのフォント
+    "terminal.integrated.fontFamily": "Cica-Regular",
+
+    // ターミナルのフォント サイズをピクセル単位で制御します。
+    "terminal.integrated.fontSize": 16,
+
+    // ターミナル内で太字のテキストに使用するフォントの太さ。
+    "terminal.integrated.fontWeightBold": "normal",
+
+    // ターミナルのカーソルを点滅させる
+    "terminal.integrated.cursorBlinking": true,
+
+    // 先頭のスペースのみ可視化
+    "editor.renderWhitespace": "boundary",
+
+    // インデントはスペース2つ
+    "editor.tabSize": 2,
+
+    // ウィンドウのズームレベル
+    "window.zoomLevel": 0,
+
+    // 最終行以降をトリミング
+    "files.trimFinalNewlines": true,
+
+    //ミニマップを表示しない
+    "editor.minimap.enabled": false,
+
+    // eslint の設定
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "typescript", "autoFix": false
+        },
+        {
+            "language": "typescriptreact", "autoFix": false
+        }
+    ],
+
+    "vim.hlsearch": true,
+
+    // カーソル上にあるワードを"*"で検索
+    "vim.visualstar": true,
+
+    // 諸々のctrlキーを使った操作が有効になる
+    "vim.useCtrlKeys": true,
+
+    //スペースをリーダーに設定
+    "vim.leader": "<space>",
+
+    "vim.normalModeKeyBindings": [
+        // space + w で保存
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        // space + q で閉じる
+        {
+            "before": [
+                "leader",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        //space + h : 行頭に移動
+        {
+            "before": [
+                "leader",
+                "h"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        //space + l : 行末に移動
+        {
+            "before": [
+                "leader",
+                "l"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        // space + f： quickOpen
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
+                }
+            ]
+        },
+        // // space + f： quickOpenNavi
+        // {
+        //     "before": [
+        //         "leader",
+        //         "f"
+        //     ],
+        //     "after": [],
+        //     "commands": [
+        //         {
+        //             "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+        //             "args": []
+        //         }
+        //     ]
+        // }
+    ],
+    // Use system clipboard for unnamed register.
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true,
+
+    // Allow VSCodeVim to change status bar color based on mode
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors": {
+        "normal": [
+            "#00bfff",
+            "#084201"
+        ],
+        "insert": [
+            "#adff2f",
+            "#084201"
+        ],
+        "visual": [
+            "#ffa500",
+            "#000000"
+        ],
+        "visualline": [
+            "#ffa500",
+            "#000000"
+        ],
+        "visualblock": [
+            "#ffa500",
+            "#000000"
+        ],
+        "replace": "#D08770"
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#00bfff",
+        "statusBar.noFolderBackground": "#00bfff",
+        "statusBar.debuggingBackground": "#00bfff",
+        "statusBar.foreground": "#084201"
+    },
+    "workbench.activityBar.visible": true,
+
+    // ワークベンチ下部にあるステータス バーで Twitter のフィードバック (スマイル) を表示するかどうかを制御します。
+    "workbench.statusBar.feedback.visible": false,
+
+    // Should display the project name in the Status Bar?
+    "projectManager.showProjectNameInStatusBar": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderControlCharacters": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Night Owl",
+    "go.useLanguageServer": true,
+    "terminal.integrated.letterSpacing": 3,
+    "terminal.integrated.lineHeight": 1.2,
+    "editor.lineHeight": 19,
+    "editor.minimap.maxColumn": 1,
+    "editor.letterSpacing": 1,
+}
