@@ -1,44 +1,11 @@
-source ~/.zplug/init.zsh
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-## Plugin
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions"
-zplug 'zsh-users/zsh-completions'
-zplug "rupa/z", use:"*.sh"
-
-# powerline_shell の設定
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# 未インストール項目をインストールする
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# コマンドをリンクして、PATH に追加し、プラグインは読み込む
-zplug load --verbose
+zplugin ligth zsh-users/zsh-completions
+zplugin light zsh-users/zsh-syntax-highlighting
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light agkozak/zsh-z
 
 export LANG=ja_JP.UTF-8
 
@@ -68,10 +35,6 @@ if [ -d $HOME/.anyenv ] ; then
     done
 fi
 
-eval "$(direnv hook zsh)"
-
-export GOPATH=$HOME/.go
-export PATH=$HOME/.go/bin:$PATH
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
 export XDG_CONFIG_HOME=~/.config
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
