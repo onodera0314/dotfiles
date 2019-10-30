@@ -1,0 +1,14 @@
+﻿{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "filetypes": ["go"]
+    }
+  },
+  "eslint.filetypes": [
+    "javascript",
+    "javascript.jsx",
+    "typescript",
+    "typescript.tsx"
+  ]
+}
