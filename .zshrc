@@ -6,11 +6,9 @@ zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light agkozak/zsh-z
+zplugin light sindresorhus/pure
 
 export LANG=ja_JP.UTF-8
-
-autoload -U promptinit; promptinit
-prompt pure
 
 autoload -U compinit
 compinit -u
