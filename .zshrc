@@ -2,7 +2,7 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-zplugin ligth zsh-users/zsh-completions
+zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light agkozak/zsh-z
