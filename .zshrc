@@ -9,6 +9,9 @@ zplugin light agkozak/zsh-z
 
 export LANG=ja_JP.UTF-8
 
+autoload -U promptinit; promptinit
+prompt pure
+
 autoload -U compinit
 compinit -u
 
