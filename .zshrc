@@ -9,6 +9,11 @@ zplugin light agkozak/zsh-z
 
 export LANG=ja_JP.UTF-8
 
+autoload -U compinit
+compinit -u
+
+setopt complete_in_word
+
 autoload -Uz colors
 colors
 
