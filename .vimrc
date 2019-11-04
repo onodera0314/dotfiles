@@ -237,8 +237,8 @@ nnoremap <silent> <leader>ch :<C-u>CD<CR>
 nnoremap <silent> <leader>cd :<C-u>Rooter<CR>
 
 " Use Ag command
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ -iS
+if executable('rg')
+  set grepprg=rg\ -i\ -S
 endif
 
 command! -nargs=+ Grep execute 'silent grep! <args>' | cw | redraw!
