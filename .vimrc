@@ -44,6 +44,9 @@ if dein#load_state('$HOME/.cache/dein')
   " Tabnine
   " call dein#add('zxqfl/tabnine-vim')
 
+  " ruby, rails 関連
+  " call dein#add('vim-ruby/vim-ruby')
+
   " JavaScript
   call dein#add('jelera/vim-javascript-syntax')
 
