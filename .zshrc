@@ -10,6 +10,8 @@ zplugin light sindresorhus/pure
 
 export LANG=ja_JP.UTF-8
 
+bindkey -e
+
 autoload -U compinit
 compinit -u
 
@@ -30,6 +32,11 @@ setopt share_history
 
 alias ls="ls -GF"
 
+eval "$(hub alias -s)"
+
+export PATH="/usr/local/bin/vim:$PATH"
+export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
+
 # anyenv の設定追加
 if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -48,3 +55,8 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+export EDITOR=vim
