@@ -41,6 +41,9 @@ if dein#load_state('$HOME/.cache/dein')
   " 英語の構文チェック
   call dein#add('rhysd/vim-grammarous')
 
+  " Tabnine
+  " call dein#add('zxqfl/tabnine-vim')
+
   " JavaScript
   call dein#add('jelera/vim-javascript-syntax')
 
