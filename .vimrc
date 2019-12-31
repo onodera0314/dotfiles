@@ -56,6 +56,9 @@ if dein#load_state('$HOME/.cache/dein')
   " js, ts hilight
   call dein#add('maxmellon/vim-jsx-pretty')
 
+  " slim hilight
+  call dein#add('slim-template/vim-slim')
+
   " Go
   call dein#add('fatih/vim-go')
 
@@ -239,7 +242,7 @@ endfunction
 " Change current directory.
 nnoremap <silent> <leader>ch :<C-u>CD<CR>
 
-" Change current directory.
+" Change project root directory.
 nnoremap <silent> <leader>cd :<C-u>Rooter<CR>
 
 " Use Ag command
@@ -251,7 +254,9 @@ command! -nargs=+ Grep execute 'silent grep! <args>' | cw | redraw!
 
 " NERDTree configuration
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+command Ntf NERDTreeFind
 
+let NERDTreeWinSize=50
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
