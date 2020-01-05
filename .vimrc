@@ -41,6 +41,16 @@ if dein#load_state('$HOME/.cache/dein')
   " 英語の構文チェック
   call dein#add('rhysd/vim-grammarous')
 
+  " LSP
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/asyncomplete.vim')
+  call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+  call dein#add('prabirshrestha/vim-lsp')
+  call dein#add('mattn/vim-lsp-settings', {'merged': 0})
+  call dein#add('mattn/vim-lsp-icons')
+  call dein#add('hrsh7th/vim-vsnip')
+  call dein#add('hrsh7th/vim-vsnip-integ')
+
   " Tabnine
   " call dein#add('zxqfl/tabnine-vim')
 
@@ -68,10 +78,6 @@ if dein#load_state('$HOME/.cache/dein')
   " fzf
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-
-  " coc
-  call dein#add('neoclide/coc.nvim', {'merge':0, 'build': './install.sh nightly'})
-  " call dein#add('neoclide/coc.nvim', {'merge':0, 'build': './install.sh nightly', 'rev': 'v0.0.71'})
 
   " vim-surround, repeat
   call dein#add('tpope/vim-surround')
@@ -261,14 +267,25 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-" coc config
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" LSP setting
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
 
-nmap <silent> <leader>h :call CocAction('doHover')<CR>
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
+
+let g:lsp_diagnostics_enabled = 1
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
 
 " vimrooter setting
 let g:rooter_use_lcd = 1
@@ -280,7 +297,7 @@ nnoremap <silent> <leader>f :Files<CR>
 
 " vista
 let g:vista#renderer#enable_icon = 1
-let g:vista_default_executive = 'coc'
+" let g:vista_default_executive = 'coc'
 let g:vista_icon_indent = ["󳄀󳄂 ", "󳄁󳄂 "]
 let g:vista#renderer#icons = {
             \ 'func':           "\Uff794",
