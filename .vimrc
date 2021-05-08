@@ -69,6 +69,9 @@ if dein#load_state('$HOME/.cache/dein')
   " js, ts hilight
   call dein#add('maxmellon/vim-jsx-pretty')
 
+  "Vue
+  call dein#add('posva/vim-vue')
+
   " slim hilight
   call dein#add('slim-template/vim-slim')
 
