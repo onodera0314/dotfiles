@@ -63,6 +63,9 @@ if dein#load_state('$HOME/.cache/dein')
   " TypeScript
   " call dein#add('HerringtonDarkholme/yats.vim')
 
+  " Vue
+  call dein#add('posva/vim-vue')
+
   " js, ts hilight
   call dein#add('maxmellon/vim-jsx-pretty')
 
