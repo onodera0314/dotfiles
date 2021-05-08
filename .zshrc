@@ -31,6 +31,11 @@ setopt hist_expand
 setopt share_history
 
 alias ls="ls -GF"
+alias repo='cd $(repos)'
+alias repos="ghq list -p | fzf"
+alias vz="vim ~/.zshrc"
+alias sz="source ~/.zshrc"
+alias vv="vim ~/.vimrc"
 
 eval "$(hub alias -s)"
 
@@ -50,13 +55,20 @@ fi
 
 export XDG_CONFIG_HOME=~/.config
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export GOPATH=$HOME/go
+export GOBIN=$(go env GOPATH)/bin
 export PATH=$GOPATH/bin:$PATH
 
+eval "$(direnv hook zsh)"
+
 export EDITOR=vim
+autoload -U +X bashcompinit && bashcompinit
+export PATH=$HOME/.cargo/bin:$PATH
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# eval "$(starship init zsh)"
