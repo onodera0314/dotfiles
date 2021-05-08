@@ -182,7 +182,7 @@
     "editor.renderControlCharacters": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Night Owl (No Italics)",
+    "workbench.colorTheme": "Tomorrow Night Blue",
     "go.useLanguageServer": true,
     "terminal.integrated.letterSpacing": 3,
     "terminal.integrated.lineHeight": 1.2,
@@ -191,4 +191,7 @@
     "editor.letterSpacing": 1,
     "ruby.codeCompletion": "rcodetools",
     "ruby.intellisense": "rubyLocate",
+    "emmet.variables": {
+        "charset": "UTF-8"
+    },
 }
