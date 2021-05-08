@@ -6,7 +6,7 @@
     "editor.fontFamily": "Cica-Regular",
 
     // フォント サイズをピクセル単位で制御します。
-    "editor.fontSize": 16,
+    "editor.fontSize": 17,
 
     // ターミナルのフォント
     "terminal.integrated.fontFamily": "Cica-Regular",
@@ -182,7 +182,7 @@
     "editor.renderControlCharacters": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorTheme": "Night Owl Light (No Italics)",
     "go.useLanguageServer": true,
     "terminal.integrated.letterSpacing": 3,
     "terminal.integrated.lineHeight": 1.2,
@@ -194,4 +194,5 @@
     "emmet.variables": {
         "charset": "UTF-8"
     },
+    "editor.wordWrap": "on"
 }
