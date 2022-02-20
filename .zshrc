@@ -64,6 +64,8 @@ export GOPATH=$HOME/go
 export GOBIN=$(go env GOPATH)/bin
 export PATH=$GOPATH/bin:$PATH
 
+export PATH=$HOME/mycommand:$PATH
+
 eval "$(direnv hook zsh)"
 
 export EDITOR=vim

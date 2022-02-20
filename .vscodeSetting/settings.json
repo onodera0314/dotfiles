@@ -166,10 +166,11 @@
         "replace": "#D08770"
     },
     "workbench.colorCustomizations": {
-        "statusBar.background": "#00bfff",
-        "statusBar.noFolderBackground": "#00bfff",
-        "statusBar.debuggingBackground": "#00bfff",
-        "statusBar.foreground": "#084201"
+        "statusBar.background": "#ffa500",
+        "statusBar.noFolderBackground": "#ffa500",
+        "statusBar.debuggingBackground": "#ffa500",
+        "statusBar.foreground": "#000000",
+        "statusBar.debuggingForeground": "#000000"
     },
     "workbench.activityBar.visible": true,
 
@@ -194,5 +195,15 @@
     "emmet.variables": {
         "charset": "UTF-8"
     },
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "ego.power-tools": {},
+    "ego.power-tools.user": {
+        "commands": {
+          "mymacro.open-pr-from-line": {
+            "name": "Open PR from current line",
+            "description": "Open PR from current line",
+            "script": "open-pr-from-line.js"
+          }
+        }
+      }
 }

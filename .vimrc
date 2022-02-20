@@ -80,9 +80,6 @@ if dein#load_state('$HOME/.cache/dein')
   " js, ts hilight
   call dein#add('maxmellon/vim-jsx-pretty')
 
-  "Vue
-  call dein#add('posva/vim-vue')
-
   " slim hilight
   call dein#add('slim-template/vim-slim')
 
@@ -94,6 +91,7 @@ if dein#load_state('$HOME/.cache/dein')
 
   " ctrlp
   call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('mattn/ctrlp-matchfuzzy')
 
   " fzf
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
@@ -108,6 +106,8 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('tpope/vim-repeat')
 
   call dein#add('liuchengxu/vista.vim')
+
+  call dein#add('rhysd/wandbox-vim')
 
   call dein#end()
   call dein#save_state()
@@ -302,7 +302,8 @@ let g:fern#renderer="devicons"
 nnoremap <silent><C-e> :Fern . -reveal=% -drawer -width=50 -toggle<CR>
 
 let g:ctrlp_match_window = 'results:50'
-let g:ctrlp_lazy_update = 100
+" let g:ctrlp_lazy_update = 100
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 
 " LSP setting
 function! s:on_lsp_buffer_enabled() abort
@@ -391,3 +392,18 @@ let g:vista#renderer#icons = {
             \ 'typeParameter':  "\Uff278",
             \ 'default':        "\Uff29c"
             \ }
+
+nnoremap <silent> <leader>r :RunRspecLine<CR>
+command RunRspecLine call s:run_rspec_line()
+function! s:run_rspec_line() abort
+  let l:filename = expand('%')
+  let l:line = line('.')
+  execute 'term' 'bundle exec rspec ' join([filename, line], ':')
+endfunction
+
+nnoremap <silent> <leader>rr :RunRspecFile<CR>
+command RunRspecFile call s:run_rspec_file()
+function! s:run_rspec_file() abort
+  let l:filename = expand('%')
+  execute 'term' 'bundle exec rspec ' filename
+endfunction
