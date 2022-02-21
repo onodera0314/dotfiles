@@ -1,12 +1,12 @@
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source "$HOME/.zi/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
 
-zplugin light zsh-users/zsh-completions
-zplugin light zsh-users/zsh-syntax-highlighting
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light agkozak/zsh-z
-zplugin light sindresorhus/pure
+zi light zsh-users/zsh-completions
+zi light zsh-users/zsh-syntax-highlighting
+zi light zsh-users/zsh-autosuggestions
+zi light agkozak/zsh-z
+zi light sindresorhus/pure
 
 export LANG=ja_JP.UTF-8
 
