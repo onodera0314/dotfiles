@@ -109,6 +109,8 @@ if dein#load_state('$HOME/.cache/dein')
 
   call dein#add('rhysd/wandbox-vim')
 
+  call dein#add('vim-denops/denops.vim')
+
   call dein#end()
   call dein#save_state()
 endif
@@ -407,3 +409,15 @@ function! s:run_rspec_file() abort
   let l:filename = expand('%')
   execute 'term' 'bundle exec rspec ' filename
 endfunction
+
+if executable("deno")
+  augroup LspTypeScript
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+    \ "name": "deno lsp",
+    \ "cmd": {server_info -> ["deno", "lsp"]},
+    \ "root_uri": {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), "tsconfig.json"))},
+    \ "whitelist": ["typescript", "typescript.tsx"],
+    \ })
+  augroup END
+endif
