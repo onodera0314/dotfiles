@@ -1,19 +1,33 @@
-source "$HOME/.zi/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+setopt HIST_IGNORE_ALL_DUPS
 
-zi light zsh-users/zsh-completions
-zi light zsh-users/zsh-syntax-highlighting
-zi light zsh-users/zsh-autosuggestions
-zi light agkozak/zsh-z
-zi light sindresorhus/pure
+WORDCHARS=${WORDCHARS//[\/]}
+
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
 
 export LANG=ja_JP.UTF-8
 
 bindkey -e
-
-autoload -U compinit
-compinit -u
 
 setopt complete_in_word
 
@@ -30,28 +44,14 @@ setopt hist_ignore_dups
 setopt hist_expand
 setopt share_history
 
-alias ls="ls -GF"
 alias repo='cd $(repos)'
 alias repos="ghq list -p | fzf"
 alias vz="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 
-eval "$(hub alias -s)"
-
 export PATH="/usr/local/bin/vim:$PATH"
 export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
-
-# anyenv の設定追加
-if [ -d $HOME/.anyenv ] ; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
-    # tmux対応
-    for D in `\ls $HOME/.anyenv/envs`
-    do
-      export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-    done
-fi
 
 export XDG_CONFIG_HOME=~/.config
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
@@ -60,17 +60,17 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export GOPATH=$HOME/go
-export GOBIN=$(go env GOPATH)/bin
-export PATH=$GOPATH/bin:$PATH
+# if [[ "${+commands[go]}" == 1 ]] ;then
+#   export GOPATH=$HOME/go
+#   export GOBIN=$(go env GOPATH)/bin
+#   export PATH=$GOPATH/bin:$PATH
+# fi
 
 export PATH=$HOME/mycommand:$PATH
 
 eval "$(direnv hook zsh)"
 
 export EDITOR=vim
-autoload -U +X bashcompinit && bashcompinit
 export PATH=$HOME/.cargo/bin:$PATH
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-# eval "$(starship init zsh)"
+export PATH=$(brew --prefix openssl)/bin:$PATH
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
