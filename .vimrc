@@ -1,4 +1,4 @@
-﻿if &compatible
+if &compatible
   set nocompatible
 endif
 
@@ -6,122 +6,112 @@ augroup vimrc
   autocmd!
 augroup END
 
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+packadd vim-jetpack
 
-if dein#load_state('$HOME/.cache/dein')
-  call dein#begin('$HOME/.cache/dein')
+call jetpack#begin()
 
-  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 " vim-airline
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
+call jetpack#add('vim-airline/vim-airline')
+call jetpack#add('vim-airline/vim-airline-themes')
 
-  " nerdtree, fern にアイコンを
-  call dein#add('ryanoasis/vim-devicons')
+" nerdtree, fern にアイコンを
+call jetpack#add('ryanoasis/vim-devicons')
 
-  " nerdtree
-  " call dein#add('scrooloose/nerdtree')
+" nerdtree
+" call jetpack#add('scrooloose/nerdtree')
 
-  " Fern ファイラ
-  call dein#add('lambdalisue/fern.vim')
-  " call dein#add('lambdalisue/nerdfont.vim')
-  call dein#add('lambdalisue/fern-renderer-devicons.vim')
-  call dein#add('lambdalisue/fern-hijack.vim')
-  call dein#add('hrsh7th/fern-mapping-collapse-or-leave.vim')
+" Fern ファイラ
+call jetpack#add('lambdalisue/fern.vim')
+call jetpack#add('lambdalisue/nerdfont.vim')
+call jetpack#add('lambdalisue/fern-renderer-nerdfont.vim')
+call jetpack#add('lambdalisue/fern-hijack.vim')
+call jetpack#add('hrsh7th/fern-mapping-collapse-or-leave.vim')
 
-  " 括弧やクォートの補完
-  call dein#add('Raimondi/delimitMate')
+" 括弧やクォートの補完
+call jetpack#add('Raimondi/delimitMate')
 
-  " コメントアウトを強力に
-  call dein#add('tpope/vim-commentary')
+" コメントアウトを強力に
+call jetpack#add('tpope/vim-commentary')
 
-  " tig を vim から
-  call dein#add('iberianpig/tig-explorer.vim')
+" tig を vim から
+call jetpack#add('iberianpig/tig-explorer.vim')
 
-  " プロジェクトルートに移動
-  call dein#add('airblade/vim-rooter')
+" プロジェクトルートに移動
+call jetpack#add('airblade/vim-rooter')
 
-  " Color
-  call dein#add('hzchirs/vim-material')
-  call dein#add('ghifarit53/tokyonight-vim')
+" Color
+call jetpack#add('hzchirs/vim-material')
+call jetpack#add('ghifarit53/tokyonight-vim')
 
-  " 英語の構文チェック
-  call dein#add('rhysd/vim-grammarous')
+" 英語の構文チェック
+call jetpack#add('rhysd/vim-grammarous')
 
-  " LSP
-  call dein#add('prabirshrestha/async.vim')
-  call dein#add('prabirshrestha/asyncomplete.vim')
-  call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-  call dein#add('prabirshrestha/vim-lsp')
-  call dein#add('mattn/vim-lsp-settings', {'merged': 0})
-  call dein#add('mattn/vim-lsp-icons')
-  call dein#add('hrsh7th/vim-vsnip')
-  call dein#add('hrsh7th/vim-vsnip-integ')
+" LSP
+call jetpack#add('prabirshrestha/async.vim')
+call jetpack#add('prabirshrestha/asyncomplete.vim')
+call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
+call jetpack#add('prabirshrestha/vim-lsp')
+call jetpack#add('mattn/vim-lsp-settings', {'merged': 0})
+call jetpack#add('hrsh7th/vim-vsnip')
+call jetpack#add('hrsh7th/vim-vsnip-integ')
 
-  " call dein#add('neoclide/coc.nvim', {'rev': 'release', 'merged': 0})
+" call jetpack#add('neoclide/coc.nvim', {'rev': 'release', 'merged': 0})
 
-  " Tabnine
-  " call dein#add('zxqfl/tabnine-vim')
+" Tabnine
+" call jetpack#add('zxqfl/tabnine-vim')
 
-  " ruby, rails 関連
-  " call dein#add('vim-ruby/vim-ruby')
-  call dein#add('tpope/vim-rails')
-  call dein#add('tpope/vim-endwise')
+" ruby, rails 関連
+" call jetpack#add('vim-ruby/vim-ruby')
+call jetpack#add('tpope/vim-rails')
+call jetpack#add('tpope/vim-endwise')
 
-  " JavaScript
-  call dein#add('jelera/vim-javascript-syntax')
+" JavaScript
+call jetpack#add('jelera/vim-javascript-syntax')
 
-  " TypeScript
-  " call dein#add('HerringtonDarkholme/yats.vim')
+" TypeScript
+" call jetpack#add('HerringtonDarkholme/yats.vim')
 
-  " Vue
-  call dein#add('posva/vim-vue')
+" Vue
+call jetpack#add('posva/vim-vue')
 
-  " js, ts hilight
-  call dein#add('maxmellon/vim-jsx-pretty')
+" js, ts hilight
+call jetpack#add('maxmellon/vim-jsx-pretty')
 
-  " slim hilight
-  call dein#add('slim-template/vim-slim')
+" slim hilight
+call jetpack#add('slim-template/vim-slim')
 
-  " Go
-  call dein#add('fatih/vim-go')
+" Go
+call jetpack#add('fatih/vim-go')
 
-  " Git
-  " call dein#add('tpope/vim-fugitive')
+" Git
+" call jetpack#add('tpope/vim-fugitive')
 
-  " ctrlp
-  call dein#add('ctrlpvim/ctrlp.vim')
-  call dein#add('mattn/ctrlp-matchfuzzy')
+" ctrlp
+call jetpack#add('ctrlpvim/ctrlp.vim')
+call jetpack#add('mattn/ctrlp-matchfuzzy')
 
-  " fzf
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  " call dein#add('junegunn/fzf', { 'build': './install --all' })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+" fzf
+call jetpack#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+" call jetpack#add('junegunn/fzf', { 'build': './install --all' })
+call jetpack#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
-  " buffer 管理
-  call dein#add('jeetsukumaran/vim-buffergator')
+" buffer 管理
+call jetpack#add('jeetsukumaran/vim-buffergator')
 
-  " vim-surround, repeat
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-repeat')
+" vim-surround, repeat
+call jetpack#add('tpope/vim-surround')
+call jetpack#add('tpope/vim-repeat')
 
-  call dein#add('liuchengxu/vista.vim')
+call jetpack#add('liuchengxu/vista.vim')
 
-  call dein#add('rhysd/wandbox-vim')
+call jetpack#add('rhysd/wandbox-vim')
 
-  call dein#add('vim-denops/denops.vim')
+" call jetpack#add('vim-denops/denops.vim')
 
-  call dein#end()
-  call dein#save_state()
-endif
+call jetpack#end()
 
-" Required:
 filetype plugin indent on
 syntax enable
-
-if dein#check_install()
-  call dein#install()
-endif
 
 set updatetime=300
 
@@ -129,7 +119,7 @@ set updatetime=300
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-set bomb
+" set bomb
 
 " 描画をすばやく
 set ttyfast
@@ -291,16 +281,7 @@ endif
 " command! -nargs=+ Grep execute 'silent grep! <args>' | cw | redraw!
 command! -nargs=+ Grep execute 'silent grep! <args>' | cw | redraw!
 
-" NERDTree configuration
-" nnoremap <silent><C-e> :NERDTreeToggle<CR>
-" command Ntf NERDTreeFind
-
-" let NERDTreeWinSize=50
-" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
-
-let g:fern#renderer="devicons"
+let g:fern#renderer = "nerdfont"
 nnoremap <silent><C-e> :Fern . -reveal=% -drawer -width=50 -toggle<CR>
 
 let g:ctrlp_match_window = 'results:50'
@@ -324,9 +305,17 @@ augroup END
 let g:lsp_log_file = ""
 
 let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_popup_delay = 200
-let g:lsp_text_edit_enabled = 0
+let g:lsp_text_edit_enabled = 1
+
+let g:lsp_diagnostics_signs_error = {'text': "\Uf490"}
+let g:lsp_diagnostics_signs_warning = {'text': "\Uf421"}
+let g:lsp_diagnostics_signs_hint = {'text': "\Uf400"}
+let g:lsp_diagnostics_signs_information = {'text': "\Uf449"}
+let g:lsp_document_code_action_signs_hint = {'text': "\Uf460"}
 
 " vimrooter setting
 let g:rooter_cd_cmd = 'lcd'
@@ -409,15 +398,3 @@ function! s:run_rspec_file() abort
   let l:filename = expand('%')
   execute 'term' 'bundle exec rspec ' filename
 endfunction
-
-if executable("deno")
-  augroup LspTypeScript
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-    \ "name": "deno lsp",
-    \ "cmd": {server_info -> ["deno", "lsp"]},
-    \ "root_uri": {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), "tsconfig.json"))},
-    \ "whitelist": ["typescript", "typescript.tsx"],
-    \ })
-  augroup END
-endif
