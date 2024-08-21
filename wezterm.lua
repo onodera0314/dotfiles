@@ -1,7 +1,10 @@
 local wezterm = require 'wezterm';
 local config = wezterm.config_builder()
 
-config.default_prog = {"wsl.exe", "~", "-d", "ubuntu"}
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_prog = {"wsl.exe", "~", "-d", "ubuntu"}
+end
+
 config.font = wezterm.font("Cica")
 config.font_size = 14
 config.color_scheme = "Blazer"
