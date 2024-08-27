@@ -1,0 +1,9 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
+  "neo-tree.nvim": { "branch": "main", "commit": "206241e451c12f78969ff5ae53af45616ffc9b72" },
+  "nui.nvim": { "branch": "main", "commit": "61574ce6e60c815b0a0c4b5655b8486ba58089a1" },
+  "nvim-web-devicons": { "branch": "master", "commit": "3722e3d1fb5fe1896a104eb489e8f8651260b520" },
+  "plenary.nvim": { "branch": "master", "commit": "ec289423a1693aeae6cd0d503bac2856af74edaa" },
+  "telescope.nvim": { "branch": "master", "commit": "5972437de807c3bc101565175da66a1aa4f8707a" },
+  "tokyonight-vim": { "branch": "master", "commit": "4e82e0f0452a6ce8f387828ec71013015515035a" }
+}
