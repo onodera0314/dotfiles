@@ -1,9 +1,7 @@
 return {
-  'ghifarit53/tokyonight-vim',
+  'folke/tokyonight.nvim',
   lazy = false,
   config = function()
-    vim.g.tokyonight_style = 'night'
-    vim.g.tokyonight_disable_italic_comment = 1
-    vim.cmd([[colorscheme tokyonight]])
+    vim.cmd([[colorscheme tokyonight-moon]])
   end
 }
