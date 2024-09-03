@@ -47,30 +47,32 @@ setopt share_history
 alias repo='cd $(repos)'
 alias repos="ghq list -p | fzf"
 alias vz="vim ~/.zshrc"
+alias nz="nvim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
+alias nn="nvim ~/.config/nvim"
 
-export PATH="/usr/local/bin/vim:$PATH"
-export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
+# export PATH="/usr/local/bin/vim:$PATH"
 
 export XDG_CONFIG_HOME=~/.config
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# if [[ "${+commands[go]}" == 1 ]] ;then
-#   export GOPATH=$HOME/go
-#   export GOBIN=$(go env GOPATH)/bin
-#   export PATH=$GOPATH/bin:$PATH
-# fi
+if [[ "${+commands[go]}" == 1 ]] ;then
+  export GOPATH=$(go env GOPATH)
+  export GOBIN=$(go env GOPATH)/bin
+  export PATH=$GOPATH/bin:$PATH
+fi
 
-export PATH=$HOME/mycommand:$PATH
-
-eval "$(direnv hook zsh)"
-
-export EDITOR=vim
+export EDITOR=nvim
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$(brew --prefix openssl)/bin:$PATH
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+if [ -d "$HOME/.zshrc.d" ] && [ "$(ls -A $HOME/.zshrc.d)" ]; then
+  for file in $HOME/.zshrc.d/*; do
+    [ -r "$file" ] && source "$file"
+  done
+fi
+
+alias ls="eza"
