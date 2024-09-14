@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd('BufEnter', {
+vim.api.nvim_create_autocmd('VimEnter', {
   pattern = '*',
   callback = function()
     local current_path = vim.fn.expand('%:p')
