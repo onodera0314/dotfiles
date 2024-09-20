@@ -8,6 +8,7 @@ return {
         'ruby',
         'javascript',
         'rust',
+        'go',
         'markdown',
         'terraform',
         'vim',
