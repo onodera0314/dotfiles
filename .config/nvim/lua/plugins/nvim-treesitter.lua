@@ -7,8 +7,11 @@ return {
         'lua',
         'ruby',
         'javascript',
+        'rust',
         'markdown',
-        'terraform'
+        'terraform',
+        'vim',
+        'vimdoc'
       },
       highlight = {
         enable = true
