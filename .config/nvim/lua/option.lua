@@ -60,3 +60,5 @@ vim.o.laststatus = 3
 
 vim.o.title = true
 vim.o.titlestring = '%F'
+
+vim.opt.signcolumn = 'yes'
