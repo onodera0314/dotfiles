@@ -1,6 +1,7 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  branch = 'main',
+  branch = 'v3.x',
+  lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -8,5 +9,10 @@ return {
   },
   keys = {
     { '<C-e>', '<Cmd>Neotree toggle<CR>', desc = 'NeoTree' }
+  },
+  opts = {
+    filesystem = {
+      hijack_netrw_behavior = "disabled",
+    },
   }
 }

@@ -14,6 +14,7 @@ vim.cmd.syntax('enable')
 
 vim.o.ruler = true
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.showmatch = true
 
 vim.o.expandtab = true
@@ -25,6 +26,13 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.opt_local.expandtab = false
   end
+})
+
+vim.filetype.add({
+  extension = {
+    tf = 'terraform',
+    tfvars = 'terraform',
+  },
 })
 
 vim.o.list = true
