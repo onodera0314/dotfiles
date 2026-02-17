@@ -1,0 +1,22 @@
+theme = "Catppuccin Mocha"
+
+font-family = "Cica Regular"
+font-size = 16
+font-feature = "-dlig"
+font-thicken = true
+font-thicken-strength = 100
+
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+
+background-opacity = 0.90
+background-blur-radius = 30
