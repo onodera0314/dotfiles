@@ -76,3 +76,5 @@ if [ -d "$HOME/.zshrc.d" ] && [ "$(ls -A $HOME/.zshrc.d)" ]; then
 fi
 
 alias ls="eza"
+
+eval "$(zoxide init zsh)"
