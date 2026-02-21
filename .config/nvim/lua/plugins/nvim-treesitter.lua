@@ -1,25 +1,24 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  lazy = false,
   build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter.configs').setup({
-      ensure_installed = {
-        'lua',
-        'ruby',
-        'javascript',
-        'rust',
-        'go',
-        'markdown',
-        'terraform',
-        'vim',
-        'vimdoc'
-      },
-      highlight = {
-        enable = true
-      },
-      indent = {
-        enable = true
-      }
+    require('nvim-treesitter').install({
+      'lua',
+      'ruby',
+      'javascript',
+      'rust',
+      'go',
+      'markdown',
+      'terraform',
+      'vim',
+      'vimdoc'
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
     })
   end
 }
