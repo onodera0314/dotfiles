@@ -60,6 +60,8 @@ source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+eval "$(mise activate zsh)"
+
 if [[ "${+commands[go]}" == 1 ]] ;then
   export GOPATH=$(go env GOPATH)
   export GOBIN=$(go env GOPATH)/bin
