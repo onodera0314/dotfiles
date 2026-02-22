@@ -66,6 +66,7 @@ return {
           'gopls',
           'denols',
           'terraformls',
+          'vtsls',
         },
         automatic_enable = true,
       })
